@@ -11,6 +11,7 @@ import SwiftUI
 struct ActivityRow: View {
     @EnvironmentObject var userData: UserData
     var activity: Activity
+    @State private var showModal = false
     @State private var showAction = false
     
     var body: some View {
@@ -25,9 +26,15 @@ struct ActivityRow: View {
             Text(activity.decription)
                 .font(.subheadline)
                 .foregroundColor(.secondary)
-            
         }
         .contentShape(Rectangle())
+        .onTapGesture {
+            self.showModal = true
+        }
+        .sheet(isPresented: $showModal) {
+            ActivityDetail(activity: self.activity)
+                .environmentObject(self.userData)
+        }
         .contextMenu {
             Button(action: {
                 self.showAction = true
@@ -49,7 +56,7 @@ struct ActivityRow: View {
     
     func delete(_ activity: Activity) {
         //  MARK: - FINISH THIS
-        print("delete row")
+        print("row 'deleted'")
     }
 }
 

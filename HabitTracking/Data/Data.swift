@@ -23,7 +23,7 @@ func loadActivities() -> [Activity] {
     return data
 }
 
-let sampleAtivities = [Activity(name: "Maximatica",
+let sampleAtivities = [Activity(name: "Some Activity",
                                 decription: "count training (like addition, subtraction, multiplication and division)",
                                 timesDone: 10,
                                 totalTime: 660)

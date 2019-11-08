@@ -13,7 +13,36 @@ struct ActivityDetail: View {
     var activity: Activity
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            Form {
+                Section(footer: Text("comment.")) {
+                    Button("Rename") {
+                        //  MARK: - FINISH THIS
+                        
+                    }
+                    Text(activity.decription)
+                        .font(.subheadline)
+                }
+                
+                HStack(alignment: .firstTextBaseline) {
+                    Text("Times done")
+                    
+                    Spacer()
+                    Text("\(activity.timesDone)")
+                }
+                
+                HStack(alignment: .firstTextBaseline) {
+                    Text("Total Time")
+                    Spacer()
+                    Text("\(activity.totalTime?.formatMinuteSecond ?? "n/a")")
+                }
+            }
+            .navigationBarTitle(activity.name)
+            .navigationBarItems(trailing: TrailingButton("Edit") {
+                //  MARK: - FINISH THIS
+                
+            })
+        }
     }
 }
 
